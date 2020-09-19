@@ -41,6 +41,6 @@
   min-width: 328px;
 }
 
-.form .container input:first-of-type {
+.form .container .div > .input:first-child {
   margin-right: 1.43rem;
 }
