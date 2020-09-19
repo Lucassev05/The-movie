@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Movie</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/sidebar.css" />
+    <link rel="stylesheet" href="./styles/content.css" />
+    <link rel="stylesheet" href="./styles/formulario.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div class="content">
+        <div class="logo-input">
+          <img src="./assets/Arrow - Right 2.svg" alt="logo" />
+          <div class="input">
+            <input type="text" placeholder="Pesquise filmes..." />
+            <img src="./assets/search.svg" alt="search" />
+          </div>
+        </div>
+        <div class="favoritos">
+          <img src="./assets/Bookmark.svg" alt="favoritos" />
+          Favoritos
+        </div>
+        <div class="promocoes">
+          <img src="./assets/Discount.svg" alt="promocoes" />
+          Promoções
+        </div>
+        <div class="profile">
+          Bem vindo Matheuso
+          <img src="./assets/fotinha minha 1.svg" alt="foto do profile" />
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="content">
+        <div class="content-interno">
+          <!-- <div class="imagem-promocao">
+            <img
+              class="background"
+              src="./assets/promotion count down.svg"
+              alt="promocao"
+            />
+            <img class="money" src="./assets/money.svg" alt="money" />
+            <div class="promocao-conteudo">
+              <div class="cupom">
+                <h3>APROVEITE AGORA</h3>
+                <div class="codigo-cupom">
+                  <img src="./assets/ICON.svg" alt="cupom" />
+                  <h3>CUPOM: HTMLNAOELIGUAGEM</h3>
+                </div>
+              </div>
+              <img src="./assets/Line 1.svg" alt="divisor" />
+              <div class="temporizador">
+                <h3>FINALIZA EM:</h3>
+                <div class="contador">
+                  <img src="./assets/relogio.svg" alt="contador" />
+                  <h3>00:04:52</h3>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <form class="form" action="">
+            <div class="container">
+              <h2>Informações iniciais</h2>
+              <div class="div1">
+                <div class="input">
+                  <h3>Insira seu nome completo</h3>
+                  <input
+                    type="text"
+                    placeholder="Ex: Matheus Vinicius"
+                    required
+                  />
+                </div>
+                <div class="input">
+                  <h3>Insira seu e-mail</h3>
+                  <input
+                    type="mail"
+                    placeholder="Ex: mateusin@arroba.com"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="div2">
+                <div class="input">
+                  <h3>Telefone</h3>
+                  <input
+                    type="number"
+                    placeholder="+55 (71) 9    -    "
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <h2>Informações de endereço</h2>
+              <div class="div1">
+                <div class="input">
+                  <h3>CEP</h3>
+                  <input type="text" placeholder="Ex: 00000-00" required />
+                </div>
+                <div class="input">
+                  <h3>Pais</h3>
+                  <input type="text" placeholder="Ex: Brasil" required />
+                </div>
+              </div>
+              <div class="div2">
+                <div class="input">
+                  <h3>Cidade</h3>
+                  <input type="text" placeholder="Ex: Salvador" required />
+                </div>
+                <div class="input">
+                  <h3>Bairro</h3>
+                  <input type="text" placeholder="Ex: Graça" required />
+                </div>
+              </div>
+              <div class="div3">
+                <div class="input">
+                  <h3>Número</h3>
+                  <input type="text" placeholder="Ex: 00" required />
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <h2>Informações de pagamento</h2>
+              <div class="div1">
+                <div class="input">
+                  <h3>Número do cartão</h3>
+                  <input
+                    type="text"
+                    placeholder="Ex: 00000 00000 0000"
+                    required
+                  />
+                </div>
+                <div class="input">
+                  <h3>Nome do cartão</h3>
+                  <input
+                    type="text"
+                    placeholder="Ex: MATHEUS VINICIUS"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="div2">
+                <div class="input">
+                  <h3>Data de expiração</h3>
+                  <input type="text" placeholder="MM/YYYY" required />
+                </div>
+                <div class="input">
+                  <h3>CVV</h3>
+                  <input type="text" placeholder="000" required />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- SIDEBAR REFAZER -->
+        <div class="sidebar">
+          <div class="titulo-sacola">
+            <img src="./assets/Bag.svg" alt="sacola" />
+            <h2>Sacola</h2>
+          </div>
+          <div class="sacola">
+            <div class="conteudo-sacola">
+              <h2>Sua Sacola está vazia</h2>
+              <h3>Adicione filmes agora</h3>
+              <img src="./assets/Social Media.svg" alt="sacola vazia" />
+            </div>
+            <div class="cupom">
+              <h4>Insira seu cupom</h4>
+              <div class="cupom-input">
+                <input type="text" placeholder="Cupom de desconto" />
+                <img src="./assets/Ticket.svg" alt="cupom" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

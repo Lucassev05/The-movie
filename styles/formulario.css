@@ -1,0 +1,46 @@
+.form .container {
+  /* min-width: 744px; */
+  padding: 2rem;
+  background: #171b1e;
+  margin-bottom: 1rem;
+}
+
+.form .container > div {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+}
+
+.form .container > h2 {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2rem;
+  color: #fdfdfd;
+  margin-bottom: 1rem;
+}
+
+.form .container .input > h3 {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.75rem;
+  color: #fdfdfd;
+}
+
+.form .container input {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  background-color: #0b1217;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  min-width: 328px;
+}
+
+.form .container input:first-of-type {
+  margin-right: 1.43rem;
+}

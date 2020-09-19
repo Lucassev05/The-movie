@@ -1,0 +1,49 @@
+<div class="sacola">
+  <div class="conteudo-sacola">
+    <h2>Sua Sacola está vazia</h2>
+    <h3>Adicione filmes agora</h3>
+    <img src="./assets/Social Media.svg" alt="sacola vazia" />
+  </div>
+  <div class="cupom">
+    <h4>Insira seu cupom</h4>
+    <div class="cupom-input">
+      <input type="text" placeholder="Cupom de desconto" />
+      <img src="./assets/Ticket.svg" alt="cupom" />
+    </div>
+  </div>
+</div>
+
+<!-- CONTEUDO DA SACOLA AO CLICAR EM ADICIONAR -->
+<div class="itens">
+  <ul>
+    <li>
+      <div class="dados-item">
+        <div class="imagem">
+          <div></div>
+          <img
+            src="https://image.tmdb.org/t/p/original/72I82eKXCadZWEYygV9GkJOQNEq.jpg"
+            alt="poster-Mulan"
+          />
+        </div>
+        <div class="nome-valor">
+          <h3 class="nome">Mulan</h3>
+          <h3 class="valor">R$ 3,00</h3>
+        </div>
+      </div>
+      <div class="incrementador">
+        <button class="adicionar">
+          <img src="./assets/add.svg" alt="adicionar" />
+        </button>
+        <h3 class="quantidadeTotal">1</h3>
+        <button class="remover">
+          <img src="./assets/Delete.svg" alt="remover" />
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<button class="btn-precoTotal">
+  <h3>Confirme seus dados</h3>
+  <h3>R$ <span class="somatorioTotal">04.98<span></h3>
+</button>

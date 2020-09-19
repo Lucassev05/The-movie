@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+body {
+  background: #1d2226;
+  width: 100vw;
+  min-width: 1282px;
+  height: 100vh;
+}
+
+.header {
+  background: #0f1c26;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.header .content {
+  max-width: 1440px;
+  min-width: 1282px;
+  margin: auto;
+  color: #fdfdfd;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5em;
+}
+
+.header .content .logo-input {
+  display: flex;
+  align-items: center;
+}
+
+.header .content .logo-input .input,
+.header .content .favoritos,
+.header .content .promocoes,
+.header .content .profile {
+  display: flex;
+  align-items: center;
+}
+
+.header .content .logo-input .input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #171b1e;
+  padding: 1rem 0.81rem;
+}
+
+.header .content .logo-input .input > input {
+  background-color: #171b1e;
+  min-width: 356px;
+  margin-right: 1rem;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  color: #fdfdfd;
+  font-size: 1rem;
+}
+
+.header .content .favoritos > img,
+.header .content .promocoes > img {
+  margin-right: 0.5rem;
+}
+
+.header .content .profile > img {
+  margin-left: 0.5rem;
+}
+
+.container .content {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 1424px;
+  min-width: 1282px;
+  margin: 8.25rem auto 0 auto;
+}

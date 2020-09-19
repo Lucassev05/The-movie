@@ -1,0 +1,265 @@
+ul {
+  list-style-type: none;
+}
+
+.container .content-interno {
+  max-width: 936px;
+  /* background-color: rosybrown; */
+}
+
+/* nao é static, absolute,fixed
+ sticky, relative */
+.content-interno .imagem-promocao {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.content-interno .promocao-conteudo {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  padding: 0.6rem 0 0.6rem 1.5rem;
+  width: 35rem;
+  height: 7.4rem;
+}
+
+/* .content-interno .promocao-conteudo .cupom {
+  margin-right: 3rem;
+} */
+
+.content-interno .promocao-conteudo .cupom > h3 {
+  font-family: Quantico;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.5rem;
+  color: #0f0915;
+  opacity: 0.8;
+}
+
+.content-interno .promocao-conteudo .temporizador {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.content-interno .promocao-conteudo .temporizador > h3 {
+  font-family: Quantico;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  color: #0f0915;
+  opacity: 0.8;
+}
+
+.content-interno .promocao-conteudo .cupom .codigo-cupom,
+.content-interno .promocao-conteudo .temporizador .contador {
+  display: flex;
+  align-items: center;
+}
+
+.content-interno .promocao-conteudo .cupom .codigo-cupom > h3,
+.content-interno .promocao-conteudo .temporizador .contador > h3 {
+  font-family: Quantico;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  color: #0f0915;
+  opacity: 0.8;
+}
+.content-interno .promocao-conteudo .cupom .codigo-cupom > img,
+.content-interno .promocao-conteudo .temporizador .contador > img {
+  margin-right: 0.5rem;
+}
+
+.content-interno .imagem-promocao:hover {
+  cursor: pointer;
+}
+
+/* .content .imagem-promocao .background {
+  position: relative;
+} */
+.content-interno .imagem-promocao .money {
+  position: absolute;
+  top: -2.68rem;
+  right: 0;
+}
+
+/* css da lista de filmes */
+.lista-filmes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+/* css dos cards dos filmes */
+.card-filme {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 168px;
+  height: 301px;
+  position: relative;
+}
+
+.card > img {
+  /* display: block;
+  margin-top: auto;
+  margin-bottom: auto; */
+  /* width: 100%;
+  height: 100%; */
+  /* height: 100%; */
+  /* min-height: 100%; */
+  /* min-width: 100%; */
+  max-width: 168px;
+  min-height: 301px;
+  position: absolute;
+}
+
+.card .favorito > img {
+  cursor: pointer;
+}
+
+.card-filme .rodape .nome-e-pontuacao {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.card-filme .rodape .nome-e-pontuacao .nome {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fdfdfd;
+}
+
+.card-filme .rodape .nome-e-pontuacao .pontuacao {
+  display: flex;
+  align-items: center;
+}
+
+.card-filme .rodape .nome-e-pontuacao .pontuacao > img {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.37rem;
+}
+
+.card-filme .rodape .nome-e-pontuacao .pontuacao > h4 {
+  color: #fbcd6e;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.card-filme .rodape .btn-adicionar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #a785ed;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+.card-filme .rodape .btn-adicionar:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(46, 46, 46, 0.45),
+      rgba(46, 46, 46, 0.45)
+    ),
+    #a785ed;
+}
+
+.card-filme .rodape .btn-adicionar:active {
+  background: linear-gradient(
+      0deg,
+      rgba(123, 123, 123, 0.45),
+      rgba(123, 123, 123, 0.45)
+    ),
+    #a785ed;
+}
+
+.card-filme .rodape .btn-adicionar > h3 {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.75rem;
+  color: #eee6ff;
+}
+
+/* configuração do titulo de top filmes e filmes */
+.top-filmes {
+  margin-bottom: 2.5rem;
+}
+.top-filmes > h2,
+.todos-filmes > h2 {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: #fdfdfd;
+}
+
+/* div todos os filmes */
+.todos-filmes .categorias {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todos-filmes .categorias .categoria {
+  border: 2px solid #ffffff;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  opacity: 0.2;
+  width: 10.5rem;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.todos-filmes .categorias .categoria-marcada {
+  background: rgba(225, 131, 200, 0.2);
+  border: 2px solid #e183c8;
+  color: #e183c8;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  width: 10.5rem;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: transparent;
+  opacity: 1;
+}
+
+.todos-filmes .categorias .categoria.ativo {
+  background: rgba(225, 131, 200, 0.2);
+  border-color: #e183c8;
+  color: #e183c8;
+  opacity: 1;
+}
+
+.todos-filmes .categorias .categoria:hover {
+  border-color: #e183c8;
+  color: #e183c8;
+  opacity: 1;
+}
+
+.todos-filmes .categorias .categoria:active {
+  border-color: #a785ed;
+  color: #a785ed;
+  opacity: 1;
+}
+
+.todos-filmes .lista-filmes > li {
+  margin-bottom: 1rem;
+}
