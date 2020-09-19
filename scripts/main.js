@@ -377,6 +377,9 @@ const criarBotaoConfirmarDados = (valorFilme) => {
   bntPrecoTotal.append(confirmeDados);
   bntPrecoTotal.append(valorTotal);
 
+  bntPrecoTotal.addEventListener("click", () => {
+    window.location.assign("././formulario.html");
+  });
   return bntPrecoTotal;
 };
 
