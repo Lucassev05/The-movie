@@ -267,6 +267,7 @@ const adicionNaSacola = (idFilme) => {
       const novoItem = criarItem(nomeFilme, valorFilme, imagemFilme, idFilme);
       divItens.append(novoItem);
       atualizarValorTotal(idFilme);
+      atualizarLocalStorage(idFilme);
     }
   } else {
     const divSacola = criarDivSacola(
@@ -279,6 +280,7 @@ const adicionNaSacola = (idFilme) => {
     conteudoSacola.append(divSacola);
     const botaoConfirmar = criarBotaoConfirmarDados(filme.price);
     sacola.append(botaoConfirmar);
+    atualizarLocalStorage(idFilme);
   }
 };
 
@@ -335,10 +337,16 @@ const criarItem = (nomeFilme, valorFilme, imagemFilme, idFilme, qtd = 1) => {
   imgIncrementar.setAttribute("alt", "adicionar");
   quantidade.setAttribute("class", "quantidadeTotal");
   quantidade.innerText = qtd;
-  imgDecrementar.setAttribute("src", "./assets/Delete.svg");
+  if (qtd == 1) {
+    imgDecrementar.setAttribute("src", "./assets/Delete.svg");
+    btnDecrementar.setAttribute("class", "remover");
+  } else {
+    imgDecrementar.setAttribute("src", "./assets/menos.svg");
+    btnDecrementar.setAttribute("class", "diminuir");
+  }
+
   imgIncrementar.setAttribute("alt", "remover");
   btnIncrementar.setAttribute("class", "adicionar");
-  btnDecrementar.setAttribute("class", "remover");
 
   btnIncrementar.append(imgIncrementar);
   btnDecrementar.append(imgDecrementar);
@@ -362,8 +370,6 @@ const criarItem = (nomeFilme, valorFilme, imagemFilme, idFilme, qtd = 1) => {
 
   criarEscuta(btnIncrementar, 0, idFilme);
   criarEscuta(btnDecrementar, 1, idFilme);
-
-  atualizarLocalStorage(idFilme);
 
   return linha;
 };
@@ -566,35 +572,47 @@ const atualizarLocalStorage = (idFilme, novo = 0) => {
   }
 };
 
-if (localStorage.hasOwnProperty("itensDaSacola")) {
-  arrayLocalStorage = JSON.parse(localStorage.getItem("itensDaSacola"));
-  let novoItem = null;
+const atualizarBotaoDoLocalStorage = (valor) => {
+  let spanValor = document.querySelector(".somatorioTotal");
+  let valorAtual = Number(spanValor.innerText);
+  valorAtual += valor;
+  spanValor.innerText = valorAtual;
+};
 
-  arrayLocalStorage.forEach((element) => {
-    let divItens = document.querySelector(".conteudo-sacola .itens");
-    if (divItens) {
-      novoItem = criarItem(
-        element.nomeFilme,
-        element.valorFilme,
-        element.imagemFilme,
-        element.idFilme,
-        element.qtd
-      );
-      divItens.append(novoItem);
-      atualizarValorTotal(idFilme);
-    } else {
-      let divSacola = criarDivSacola(
-        element.nomeFilme,
-        element.valorFilme,
-        element.imagemFilme,
-        element.idFilme,
-        element.qtd
-      );
-      conteudoSacola.innerHTML = "";
-      conteudoSacola.append(divSacola);
-      const botaoConfirmar = criarBotaoConfirmarDados(filme.price);
-      sacola.append(botaoConfirmar);
-    }
-  });
-}
-// consts removerItemLocalStorage = () => {};
+const popularBagComLocalStorage = () => {
+  if (localStorage.hasOwnProperty("itensDaSacola")) {
+    arrayLocalStorage = JSON.parse(localStorage.getItem("itensDaSacola"));
+    let novoItem = null;
+
+    arrayLocalStorage.forEach((element) => {
+      let divItens = document.querySelector(".conteudo-sacola .itens");
+      if (divItens) {
+        novoItem = criarItem(
+          element.nomeFilme,
+          element.valorFilme,
+          element.imagemFilme,
+          element.idFilme,
+          element.qtd
+        );
+        divItens.append(novoItem);
+        atualizarBotaoDoLocalStorage(element.valorFilme * element.qtd);
+      } else {
+        let divSacola = criarDivSacola(
+          element.nomeFilme,
+          element.valorFilme,
+          element.imagemFilme,
+          element.idFilme,
+          element.qtd
+        );
+        conteudoSacola.innerHTML = "";
+        conteudoSacola.append(divSacola);
+        const botaoConfirmar = criarBotaoConfirmarDados(
+          element.valorFilme * element.qtd
+        );
+        sacola.append(botaoConfirmar);
+      }
+    });
+  }
+};
+
+popularBagComLocalStorage();
