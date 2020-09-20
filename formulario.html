@@ -69,7 +69,7 @@
               </div>
             </div>
           </div> -->
-          <form class="form" action="" id="formulario">
+          <form class="form" action="./sucess.html" id="formulario">
             <div class="container">
               <h2>Informações iniciais</h2>
               <div class="div">
@@ -137,7 +137,12 @@
               <div class="div">
                 <div class="input">
                   <h3>Número</h3>
-                  <input type="text" inputmode="numeric" placeholder="Ex: 00" />
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    placeholder="Ex: 00"
+                    required
+                  />
                 </div>
               </div>
             </div>
@@ -197,10 +202,7 @@
               <h3>Adicione filmes agora</h3>
               <img src="./assets/Social Media.svg" alt="sacola vazia" />
             </div>
-            <div class="subtotal">
-              <h3>Subtotal</h3>
-              <h3>R$ <span>04,98</span></h3>
-            </div>
+
             <div class="cupom">
               <h4>Insira seu cupom</h4>
               <div class="cupom-input">
@@ -208,14 +210,11 @@
                 <img src="./assets/Ticket.svg" alt="cupom" />
               </div>
             </div>
-            <button class="btn-precoTotal" form="formulario">
-              <h3>Comprar agora</h3>
-              <h3>R$ <span class="somatorioTotal">6</span></h3>
-            </button>
           </div>
         </div>
       </div>
     </div>
+    <script src="./scripts/helpers.js"></script>
     <script src="./scripts/formulario.js"></script>
   </body>
 </html>
