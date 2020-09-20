@@ -19,15 +19,14 @@ let valorTotal = 0;
 let arrayTopFilmes = [];
 let arrayFilmes = [];
 let arrayFiltrado = [];
+let itemsDoCarrinho = [];
 
 const addEventBtnSacola = (inicio = true) => {
   btnAddSacola = document.querySelectorAll(".btn-adicionar");
-  console.log(btnAddSacola);
   if (inicio) {
     btnAddSacola.forEach((element) => {
       element.addEventListener("click", () => {
         let idDaLi = element.value;
-        console.log(idDaLi);
         adicionNaSacola(idDaLi);
       });
     });
@@ -35,7 +34,6 @@ const addEventBtnSacola = (inicio = true) => {
     for (let i = 5; i < 25; i++) {
       btnAddSacola[i].addEventListener("click", () => {
         let idDaLi = btnAddSacola[i].value;
-        console.log(idDaLi);
         adicionNaSacola(idDaLi);
       });
     }
@@ -113,6 +111,7 @@ const filtrarFilme = (id) => {
     let ulExistente = document.querySelector(".todos-filmes > .lista-filmes");
     divlistaFilmes.removeChild(ulExistente);
     divlistaFilmes.append(listaHtml);
+    addEventBtnSacola(false);
   } else {
     fetch(
       `https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?with_genres=${id}&language=pt-BR`
@@ -283,19 +282,25 @@ const adicionNaSacola = (idFilme) => {
   }
 };
 
-const criarDivSacola = (nomeFilme, valorFilme, imagemFilme, idFilme) => {
+const criarDivSacola = (
+  nomeFilme,
+  valorFilme,
+  imagemFilme,
+  idFilme,
+  qtd = 1
+) => {
   let divItens = document.createElement("div");
   let listaNaoOrdenada = document.createElement("ul");
   divItens.setAttribute("class", "itens");
   listaNaoOrdenada.append(
-    criarItem(nomeFilme, valorFilme, imagemFilme, idFilme)
+    criarItem(nomeFilme, valorFilme, imagemFilme, idFilme, qtd)
   );
+
   divItens.append(listaNaoOrdenada);
-  // salvarItemLocalStorage(idFilme);
   return divItens;
 };
 
-const criarItem = (nomeFilme, valorFilme, imagemFilme, idFilme) => {
+const criarItem = (nomeFilme, valorFilme, imagemFilme, idFilme, qtd = 1) => {
   let linha = document.createElement("li");
   let divDadosItem = document.createElement("div");
   let divImage = document.createElement("div");
@@ -329,7 +334,7 @@ const criarItem = (nomeFilme, valorFilme, imagemFilme, idFilme) => {
   imgIncrementar.setAttribute("src", "./assets/add.svg");
   imgIncrementar.setAttribute("alt", "adicionar");
   quantidade.setAttribute("class", "quantidadeTotal");
-  quantidade.innerText = 1;
+  quantidade.innerText = qtd;
   imgDecrementar.setAttribute("src", "./assets/Delete.svg");
   imgIncrementar.setAttribute("alt", "remover");
   btnIncrementar.setAttribute("class", "adicionar");
@@ -357,6 +362,8 @@ const criarItem = (nomeFilme, valorFilme, imagemFilme, idFilme) => {
 
   criarEscuta(btnIncrementar, 0, idFilme);
   criarEscuta(btnDecrementar, 1, idFilme);
+
+  atualizarLocalStorage(idFilme);
 
   return linha;
 };
@@ -415,9 +422,11 @@ const editarItemSacola = (id, incrementar = true) => {
     quantidadeAtual++;
     elementoQuantidade.innerText = quantidadeAtual;
     atualizarValorTotal(id);
+    atualizarLocalStorage(id, 1);
   } else {
     if (quantidadeAtual === 1) {
       atualizarValorTotal(id, false);
+      atualizarLocalStorage(id, 2);
       elementoNaBag.remove();
 
       // mudar div e remover botao caso não tenha nenhum item na bag
@@ -426,6 +435,7 @@ const editarItemSacola = (id, incrementar = true) => {
         removerButtonImg.setAttribute("src", "./assets/Delete.svg");
       }
       atualizarValorTotal(id, false);
+      atualizarLocalStorage(id, 2);
 
       quantidadeAtual--;
       elementoQuantidade.innerText = quantidadeAtual;
@@ -475,15 +485,116 @@ const atualizarValorTotal = (idElemento, adicionar = true) => {
   spanValorTotal.innerText = valorTotal;
 };
 
-// const salvarItemLocalStorage = (item, criar = true) => {
-//   if (criar) {
-//     let itemsDoCarrinho = [];
-//     itemsDoCarrinho.push({ item, quantidade: 1 });
+const atualizarLocalStorage = (idFilme, novo = 0) => {
+  let itensDaSacola = localStorage.getItem("itensDaSacola");
+  let arrayDaSacola = JSON.parse(itensDaSacola);
+  let index = null;
 
-//     localStorage.setItem("itemsDoCarrinho", itemsDoCarrinho);
-//     console.log(localStorage.getItem("itemsDoCarrinho"));
-//   } else {
-//     set;
-//   }
-// };
+  let filtro = document.querySelector(".categoria.ativo").value;
+  console.log(filtro);
+
+  if (arrayDaSacola) {
+    arrayDaSacola.forEach((element, i) => {
+      if (idFilme == element.idFilme) {
+        console.log("encontrei", element.idFilme);
+        index = i;
+      }
+    });
+  }
+
+  let elemento = null;
+  arrayTopFilmes.forEach((element) => {
+    if (element.id == idFilme) {
+      elemento = element;
+    }
+  });
+
+  if (filtro == 0) {
+    arrayFilmes.forEach((element) => {
+      if (element.id == idFilme) {
+        elemento = element;
+      }
+    });
+  } else {
+    arrayFiltrado.forEach((element) => {
+      if (element.id == idFilme) {
+        elemento = element;
+      }
+    });
+  }
+
+  if (novo == 0) {
+    if (arrayDaSacola == null) {
+      arrayDaSacola = [];
+    }
+    item = {
+      nomeFilme: elemento.title,
+      valorFilme: elemento.price,
+      imagemFilme: elemento.poster_path,
+      idFilme: elemento.id,
+      qtd: 1,
+    };
+    arrayDaSacola.push(item);
+    localStorage.setItem("itensDaSacola", JSON.stringify(arrayDaSacola));
+  } else if (novo == 1) {
+    item = {
+      nomeFilme: arrayDaSacola[index].nomeFilme,
+      valorFilme: arrayDaSacola[index].valorFilme,
+      imagemFilme: arrayDaSacola[index].imagemFilme,
+      idFilme: arrayDaSacola[index].idFilme,
+      qtd: arrayDaSacola[index].qtd + 1,
+    };
+    arrayDaSacola.splice(index, 1, item);
+    localStorage.setItem("itensDaSacola", JSON.stringify(arrayDaSacola));
+  } else if (novo == 2) {
+    item = {
+      nomeFilme: arrayDaSacola[index].nomeFilme,
+      valorFilme: arrayDaSacola[index].valorFilme,
+      imagemFilme: arrayDaSacola[index].imagemFilme,
+      idFilme: arrayDaSacola[index].idFilme,
+      qtd: arrayDaSacola[index].qtd - 1,
+    };
+    if (item.qtd == 0) {
+      arrayDaSacola.splice(index, 1);
+    } else {
+      arrayDaSacola.splice(index, 1, item);
+    }
+    localStorage.setItem("itensDaSacola", JSON.stringify(arrayDaSacola));
+  }
+  if (arrayDaSacola.length == 0) {
+    localStorage.clear();
+  }
+};
+
+if (localStorage.hasOwnProperty("itensDaSacola")) {
+  arrayLocalStorage = JSON.parse(localStorage.getItem("itensDaSacola"));
+  let novoItem = null;
+
+  arrayLocalStorage.forEach((element) => {
+    let divItens = document.querySelector(".conteudo-sacola .itens");
+    if (divItens) {
+      novoItem = criarItem(
+        element.nomeFilme,
+        element.valorFilme,
+        element.imagemFilme,
+        element.idFilme,
+        element.qtd
+      );
+      divItens.append(novoItem);
+      atualizarValorTotal(idFilme);
+    } else {
+      let divSacola = criarDivSacola(
+        element.nomeFilme,
+        element.valorFilme,
+        element.imagemFilme,
+        element.idFilme,
+        element.qtd
+      );
+      conteudoSacola.innerHTML = "";
+      conteudoSacola.append(divSacola);
+      const botaoConfirmar = criarBotaoConfirmarDados(filme.price);
+      sacola.append(botaoConfirmar);
+    }
+  });
+}
 // consts removerItemLocalStorage = () => {};

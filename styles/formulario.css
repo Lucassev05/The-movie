@@ -9,6 +9,7 @@
   display: flex;
   /* flex-direction: column; */
   justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
 .form .container > h2 {
@@ -39,6 +40,7 @@
   font-size: 1rem;
   padding: 0.5rem 1rem;
   min-width: 328px;
+  color: #fdfdfd;
 }
 
 .form .container .div > .input:first-child {

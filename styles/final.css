@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.content-sucess {
+  display: flex;
+  margin: auto;
+  min-width: 784px;
+  min-height: 443px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(40px);
+}
+
+.content-sucess .conteudo {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: 456px;
+  min-height: 443px;
+}
+
+.content-sucess .conteudo .conteudo-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-sucess .conteudo .conteudo-texto > h1 {
+  margin-top: 0.5rem;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: #e8e8e8;
+  margin-bottom: 1rem;
+}
+.content-sucess .conteudo .conteudo-texto > h3 {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #e8e8e8;
+}
+
+.content-sucess .conteudo > button {
+  background: #e25ebf;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fdfdfd;
+  padding: 1rem;
+}
+
+.content-sucess .conteudo > button:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(225, 123, 123, 0.45),
+      rgba(225, 123, 123, 0.45)
+    ),
+    #ffb6eb;
+}
+
+.content-sucess .conteudo > button:active {
+  background: linear-gradient(
+      0deg,
+      rgba(225, 123, 123, 0.6),
+      rgba(225, 123, 123, 0.6)
+    ),
+    #ffb6eb;
+}
+
+.content-sucess > img {
+  position: absolute;
+  right: -16rem;
+  bottom: -2.5rem;
+}
