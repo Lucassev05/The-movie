@@ -31,8 +31,8 @@
 
 .form .container input {
   box-shadow: 0 0 0 0;
-  border: 0 none;
   outline: 0;
+  border: 1px solid transparent;
   background-color: #0b1217;
   font-family: Manrope;
   font-style: normal;
@@ -41,6 +41,13 @@
   padding: 0.5rem 1rem;
   min-width: 328px;
   color: #fdfdfd;
+}
+.form .container input:hover {
+  border: 1px solid #fdfdfd;
+}
+
+.form .container input:focus:invalid {
+  border: 1px solid #eb5757;
 }
 
 .form .container .div > .input:first-child {
