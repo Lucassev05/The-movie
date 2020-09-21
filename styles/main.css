@@ -85,3 +85,7 @@ body {
   min-width: 1282px;
   margin: 8.25rem auto 0 auto;
 }
+
+.profile > img {
+  max-width: 56px;
+}
