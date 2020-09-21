@@ -195,6 +195,7 @@
 .sidebar .sacola .subtotal {
   display: flex;
   justify-content: space-between;
+  margin-top: 0.5rem;
 }
 
 .sidebar .sacola .subtotal > h3 {

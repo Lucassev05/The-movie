@@ -5,7 +5,6 @@ let arrayTopFilmes = [];
 let arrayFilmes = [];
 let arrayFiltrado = [];
 let itemsDoCarrinho = [];
-let valorTotalDaCompra = 0;
 
 popularArrays();
 
@@ -14,6 +13,11 @@ propaganda.addEventListener("click", () => {
   let container = propaganda.parentNode;
   container.removeChild(propaganda);
   clearInterval(contadorRegressivoInterval);
+  localStorage.setItem("desconto", "HTMLNAOELINGUAGEM");
+  let spanValor = document.querySelector(".somatorioTotal");
+  if (spanValor) {
+    spanValor.innerText = valorTotalDaCompra * 0.9;
+  }
 });
 
 btnFiltrar.forEach((element) => {

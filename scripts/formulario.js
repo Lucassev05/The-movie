@@ -54,6 +54,9 @@ atualizarLocalStorage = (idFilme, novo = 0) => {
   }
   if (arrayDaSacola.length == 0) {
     localStorage.clear();
+    let inputDaPagina = document.querySelector(".cupom-input > input");
+    inputDaPagina.value = localStorage.getItem("desconto");
+    let spanValor = document.querySelector(".somatorioTotal");
   }
   atualizarSubtotal();
 };
@@ -90,7 +93,7 @@ const atualizarSubtotal = (criar = 0) => {
         valorTotal += element.valorFilme * element.qtd;
       });
     }
-    if (valorTotal === 0) {
+    if (valorTotal <= 0) {
       document.querySelector(".subtotal").remove();
     }
     subtotalValue.innerText = valorTotal;
@@ -126,5 +129,14 @@ if (localStorage.hasOwnProperty("itensDaSacola")) {
       inputs.forEach((v) => values.push(v.value));
       botaoComprar.disabled = values.includes("");
     });
+  }
+}
+
+if (localStorage.hasOwnProperty("desconto")) {
+  let inputDaPagina = document.querySelector(".cupom-input > input");
+  inputDaPagina.value = localStorage.getItem("desconto");
+  let spanValor = document.querySelector(".somatorioTotal");
+  if (spanValor) {
+    spanValor.innerText = valorTotalDaCompra * 0.9;
   }
 }

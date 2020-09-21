@@ -14,6 +14,22 @@ const btnMarcarFavorito = document.querySelectorAll(
 );
 const btnFiltrar = document.querySelectorAll(".categoria");
 const sacola = document.querySelector(".sacola");
+let valorTotalDaCompra = 0;
+
+inputDesconto.addEventListener("input", () => {
+  let spanValor = document.querySelector(".somatorioTotal");
+  if (inputDesconto.value.toLowerCase() === "htmlnaoelinguagem") {
+    if (spanValor) {
+      spanValor.innerText = valorTotalDaCompra * 0.9;
+    }
+    localStorage.setItem("desconto", "HTMLNAOELINGUAGEM");
+  } else {
+    if (spanValor) {
+      spanValor.innerText = valorTotalDaCompra;
+    }
+    localStorage.removeItem("desconto");
+  }
+});
 
 const addEventBtnSacola = (inicio = true) => {
   btnAddSacola = document.querySelectorAll(".btn-adicionar");
@@ -273,7 +289,6 @@ const criarDivSacola = (
   listaNaoOrdenada.append(
     criarItem(nomeFilme, valorFilme, imagemFilme, idFilme, qtd)
   );
-
   divItens.append(listaNaoOrdenada);
   return divItens;
 };
@@ -346,7 +361,6 @@ const criarItem = (nomeFilme, valorFilme, imagemFilme, idFilme, qtd = 1) => {
 
   criarEscuta(btnIncrementar, 0, idFilme);
   criarEscuta(btnDecrementar, 1, idFilme);
-
   return linha;
 };
 
@@ -361,7 +375,15 @@ const criarBotaoConfirmarDados = (valorFilme) => {
   confirmeDados.setAttribute("class", "texto-botao");
   valorTotal.innerText = "R$ ";
   spanValor.setAttribute("class", "somatorioTotal");
-  spanValor.innerText = valorFilme;
+  if (
+    document.querySelector(".cupom-input > input").value.toLowerCase() ==
+    "htmlnaoelinguagem"
+  ) {
+    spanValor.innerText = valorFilme * 0.9;
+  } else {
+    spanValor.innerText = valorFilme;
+  }
+  valorTotalDaCompra += valorFilme;
 
   valorTotal.append(spanValor);
   bntPrecoTotal.append(confirmeDados);
@@ -453,9 +475,11 @@ const atualizarValorTotal = (idElemento, adicionar = true) => {
 
   if (adicionar) {
     valorTotal += valorUnitario;
+    valorTotalDaCompra += valorUnitario; //
   } else {
     valorTotal -= Number(valorUnitario);
-    if (valorTotal === 0) {
+    valorTotalDaCompra -= valorUnitario; //
+    if (valorTotal <= 0) {
       document.querySelector(".btn-precoTotal").remove();
       document.querySelector(".conteudo-sacola .itens").remove();
       const conteudoSacola = document.querySelector(".conteudo-sacola");
@@ -464,10 +488,14 @@ const atualizarValorTotal = (idElemento, adicionar = true) => {
       conteudoSacola.append(sacolaVazia()[2]);
     }
   }
-  if (cupom === "HTMLNAOELINGUAGEM") {
-    valorComDesconto = valorUnitario * 0.9;
+  if (
+    document.querySelector(".cupom-input > input").value.toLowerCase() ==
+    "htmlnaoelinguagem"
+  ) {
+    spanValorTotal.innerText = valorTotalDaCompra * 0.9;
+  } else {
+    spanValorTotal.innerText = valorTotalDaCompra;
   }
-  spanValorTotal.innerText = valorTotal;
 };
 
 let atualizarLocalStorage = (idFilme, novo = 0) => {
@@ -553,6 +581,7 @@ const atualizarBotaoDoLocalStorage = (valor) => {
   let spanValor = document.querySelector(".somatorioTotal");
   let valorAtual = Number(spanValor.innerText);
   valorAtual += valor;
+  valorTotalDaCompra += valor;
   spanValor.innerText = valorAtual;
 };
 
