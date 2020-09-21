@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Lucassev05/The-movie/issues"
   },
-  "homepage": "https://github.com/Lucassev05/The-movie#readme"
+  "homepage": "https://github.com/Lucassev05/The-movie#readme",
+  "dependencies": {
+    "node-static": "^0.7.11"
+  }
 }
