@@ -21,12 +21,18 @@
   margin-bottom: 1rem;
 }
 
-.form .container .input > h3 {
+.form .container .input {
+  display: flex;
+  flex-direction: column;
+}
+
+.form .container .input > label {
   font-family: Manrope;
   font-style: normal;
   font-weight: normal;
   font-size: 0.75rem;
   color: #fdfdfd;
+  margin-bottom: 0.3rem;
 }
 
 .form .container input {

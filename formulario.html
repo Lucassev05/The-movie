@@ -74,16 +74,18 @@
               <h2>Informações iniciais</h2>
               <div class="div">
                 <div class="input">
-                  <h3>Insira seu nome completo</h3>
+                  <label for="nome">Insira seu nome completo</label>
                   <input
+                    id="nome"
                     type="text"
                     placeholder="Ex: Lucas Evangelista"
                     required
                   />
                 </div>
                 <div class="input">
-                  <h3>Insira seu e-mail</h3>
+                  <label for="email">Insira seu e-mail</label>
                   <input
+                    id="email"
                     type="email"
                     placeholder="Ex: lucas@arroba.com"
                     required
@@ -92,8 +94,9 @@
               </div>
               <div class="div">
                 <div class="input">
-                  <h3>Telefone</h3>
+                  <label for="telefone">Telefone</label>
                   <input
+                    id="telefone"
                     type="text"
                     placeholder="+55 (71) 99999-9999"
                     required
@@ -106,8 +109,9 @@
               <h2>Informações de endereço</h2>
               <div class="div">
                 <div class="input">
-                  <h3>CEP</h3>
+                  <label for="cep">CEP</label>
                   <input
+                    id="cep"
                     type="text"
                     placeholder="Ex: 00000-00"
                     inputmode="numeric"
@@ -115,24 +119,40 @@
                   />
                 </div>
                 <div class="input">
-                  <h3>País</h3>
-                  <input type="text" placeholder="Ex: Brasil" required />
-                </div>
-              </div>
-              <div class="div">
-                <div class="input">
-                  <h3>Cidade</h3>
-                  <input type="text" placeholder="Ex: Salvador" required />
-                </div>
-                <div class="input">
-                  <h3>Bairro</h3>
-                  <input type="text" placeholder="Ex: Graça" required />
-                </div>
-              </div>
-              <div class="div">
-                <div class="input">
-                  <h3>Número</h3>
+                  <label for="pais">País</label>
                   <input
+                    id="pais"
+                    type="text"
+                    placeholder="Ex: Brasil"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="div">
+                <div class="input">
+                  <label for="cidade">Cidade</label>
+                  <input
+                    id="cidade"
+                    type="text"
+                    placeholder="Ex: Salvador"
+                    required
+                  />
+                </div>
+                <div class="input">
+                  <label for="bairro">Bairro</label>
+                  <input
+                    id="bairro"
+                    type="text"
+                    placeholder="Ex: Graça"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="div">
+                <div class="input">
+                  <label for="numero-residencial">Número</label>
+                  <input
+                    id="numero-residencial"
                     type="text"
                     inputmode="numeric"
                     placeholder="Ex: 00"
@@ -145,8 +165,9 @@
               <h2>Informações de pagamento</h2>
               <div class="div">
                 <div class="input">
-                  <h3>Número do cartão</h3>
+                  <label for="numero-cartao">Número do cartão</label>
                   <input
+                    id="numero-cartao"
                     type="text"
                     placeholder="Ex: 00000 00000 0000"
                     inputmode="numeric"
@@ -154,8 +175,9 @@
                   />
                 </div>
                 <div class="input">
-                  <h3>Nome impresso no cartão</h3>
+                  <label for="nome-cartao">Nome impresso no cartão</label>
                   <input
+                    id="nome-cartao"
                     type="text"
                     placeholder="Ex: LUCAS EVANGELISTA"
                     required
@@ -164,8 +186,9 @@
               </div>
               <div class="div">
                 <div class="input">
-                  <h3>Data de expiração</h3>
+                  <label for="data-expiracao">Data de expiração</label>
                   <input
+                    id="data-expiracao"
                     type="text"
                     inputmode="numeric"
                     placeholder="MM/YYYY"
@@ -173,8 +196,9 @@
                   />
                 </div>
                 <div class="input">
-                  <h3>CVV</h3>
+                  <label for="cvv">CVV</label>
                   <input
+                    id="cvv"
                     type="text"
                     inputmode="numeric"
                     placeholder="000"
@@ -199,9 +223,13 @@
             </div>
 
             <div class="cupom">
-              <h4>Insira seu cupom</h4>
+              <label for="cupom-desconto">Insira seu cupom</label>
               <div class="cupom-input">
-                <input type="text" placeholder="Cupom de desconto" />
+                <input
+                  id="cupom-desconto"
+                  type="text"
+                  placeholder="Cupom de desconto"
+                />
                 <img src="./assets/Ticket.svg" alt="cupom" />
               </div>
             </div>

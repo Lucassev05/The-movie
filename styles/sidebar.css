@@ -209,7 +209,7 @@
   margin-top: 1rem;
   min-width: 280px;
 }
-.sidebar .sacola .cupom > h4 {
+.sidebar .sacola .cupom > label {
   font-family: Manrope;
   font-style: normal;
   font-weight: normal;
