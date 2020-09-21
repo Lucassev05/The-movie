@@ -20,7 +20,7 @@ inputDesconto.addEventListener("input", () => {
   let spanValor = document.querySelector(".somatorioTotal");
   if (inputDesconto.value.toLowerCase() === "htmlnaoelinguagem") {
     if (spanValor) {
-      spanValor.innerText = valorTotalDaCompra * 0.9;
+      spanValor.innerText = valorTotalDaCompra * 0.5;
     }
     localStorage.setItem("desconto", "HTMLNAOELINGUAGEM");
   } else {
@@ -379,7 +379,7 @@ const criarBotaoConfirmarDados = (valorFilme) => {
     document.querySelector(".cupom-input > input").value.toLowerCase() ==
     "htmlnaoelinguagem"
   ) {
-    spanValor.innerText = valorFilme * 0.9;
+    spanValor.innerText = valorFilme * 0.5;
   } else {
     spanValor.innerText = valorFilme;
   }
@@ -492,7 +492,7 @@ const atualizarValorTotal = (idElemento, adicionar = true) => {
     document.querySelector(".cupom-input > input").value.toLowerCase() ==
     "htmlnaoelinguagem"
   ) {
-    spanValorTotal.innerText = valorTotalDaCompra * 0.9;
+    spanValorTotal.innerText = valorTotalDaCompra * 0.5;
   } else {
     spanValorTotal.innerText = valorTotalDaCompra;
   }

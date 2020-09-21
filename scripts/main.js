@@ -16,7 +16,7 @@ propaganda.addEventListener("click", () => {
   localStorage.setItem("desconto", "HTMLNAOELINGUAGEM");
   let spanValor = document.querySelector(".somatorioTotal");
   if (spanValor) {
-    spanValor.innerText = valorTotalDaCompra * 0.9;
+    spanValor.innerText = valorTotalDaCompra * 0.5;
   }
 });
 
@@ -33,7 +33,7 @@ btnFiltrar.forEach((element) => {
 popularBagComLocalStorage();
 
 let contador = 59;
-let minutos = 9;
+let minutos = 4;
 let contadorRegressivoInterval = setInterval(() => {
   let mostrador = contadorRegressivo.querySelector("h3");
 

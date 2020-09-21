@@ -137,6 +137,6 @@ if (localStorage.hasOwnProperty("desconto")) {
   inputDaPagina.value = localStorage.getItem("desconto");
   let spanValor = document.querySelector(".somatorioTotal");
   if (spanValor) {
-    spanValor.innerText = valorTotalDaCompra * 0.9;
+    spanValor.innerText = valorTotalDaCompra * 0.5;
   }
 }
